@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  images:{
+    domains: ['codexview.com']
+  }
 }
 
 module.exports = nextConfig
