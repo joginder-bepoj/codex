@@ -20,11 +20,7 @@ const ViewTutorial = ({chapterList, chapterData, navigation, fadeinClass}) => {
 
     return (
         <>
-                <Head>
-                    <title>{chapterData?.sub_chapter}</title>
-                    <meta name="description" content="Home page" />
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
+            
             <section className="pt-3 bg-light tutorial-info" >
                 <div className="container">
                     <div className="row ">

@@ -4,10 +4,15 @@ import UserBG from '../../components/usersinfo/UserBG'
 import UsersTabs from '../../components/usersinfo/UsersTabs'
 import { ToastContainer } from 'react-toastify'
 import axios from 'axios'
+import Head from 'next/head'
 
 const UserProfile = ({userViewData}) => {
   return (
     <>
+        <Head>
+            <title>{userViewData?.user}</title>
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
         <Layout>
             <UserBG userViewData={userViewData}  />
             <UsersTabs userViewData={userViewData} />

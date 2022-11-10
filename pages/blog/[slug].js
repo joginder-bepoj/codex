@@ -9,6 +9,7 @@ import blogImg from "../../assets/blog-bnr.png"
 import axios from 'axios'
 import {blogs} from "../../services/services"
 import { useStateContext } from '../../context/StateContext'
+import Head from 'next/head'
 
 const BlogsViewPage = ({singleBlog, blogsData}) => {
     const [addComment, setAddComment] = useState(false)
@@ -20,6 +21,11 @@ const BlogsViewPage = ({singleBlog, blogsData}) => {
     
   return (
     <>
+      <Head>
+        <title>{singleBlog.title}</title>
+        <meta name="description" content="Issue page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
         <Layout>
             <AboutBanner name={"Blog"} bnrImg={blogImg} />
             <Advertisement />

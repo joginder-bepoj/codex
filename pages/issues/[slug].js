@@ -22,8 +22,8 @@ const IssueView = ({issueData, singleIssue}) => {
      }, [])
   return (
     <>
-    <Head>
-        <title>Issue</title>
+      <Head>
+        <title>{singleIssue.issue_title}</title>
         <meta name="description" content="Issue page" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

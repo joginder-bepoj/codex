@@ -5,6 +5,7 @@ import ViewTutorial from "../components/tutorialTab/ViewTutorial";
 import Layout from "../layout/Layout";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const Tutorials = ({ chapterList, chapterData }) => {
   const [fadeinClass, setFadeinClass] = useState(false);
@@ -37,6 +38,12 @@ const Tutorials = ({ chapterList, chapterData }) => {
 
   return (
     <>
+      <Head>
+          <title>{chapterData?.sub_chapter}</title>
+          <meta name="description" content={chapterData?.meta_description} />
+          <meta name="keywords" content={chapterData?.meta_keywords} />
+          <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Layout>
         <TutorialsBanner />
         <ViewTutorial
