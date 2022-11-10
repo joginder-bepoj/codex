@@ -41,6 +41,7 @@ const AddBlog = () => {
                                 <input
                                     type="file"
                                     name="file"
+                                    accept="image/png, image/gif, image/jpeg"
                                     value={blogPostData.file}
                                     onChange={handleChange}
                                     className="modalInp w-100 border-bottom"
