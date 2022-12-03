@@ -8,13 +8,12 @@ export const issue = async () => {
                     "X-API-KEY": process.env.NEXT_APP_API_KEY,
                 }
             }
-        );
-        
+        )
         return res.data
     } catch (err) {
         console.log(err);
     }
-};;
+};
 
 export const blogs = async () => {
     try {
@@ -27,7 +26,7 @@ export const blogs = async () => {
     } catch (err) {
         console.log(err)
     }
-}
+};
 
 export const skills = async () => {
     try {

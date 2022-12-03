@@ -82,7 +82,7 @@ const TutorialTab = ({skillData}) => {
                 </p>
                 <div className="row row-cols-md-3 row-cols-1 mb-3 g-4">
                   {
-                    skillData.map((item, i)=>(
+                    skillData?.map((item, i)=>(
                       i>1 && i<5 &&
                       <div className="col" key={i}>
                     <div className="card h-100">

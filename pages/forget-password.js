@@ -14,13 +14,13 @@ const Forgetpassword = () => {
     if (userInfo) {
       user = userInfo;
     }
-}, []);
+  }, []);
 
-useEffect(()=>{
-    if(user){
-        router.push("/")
-    }
-},[])
+  useEffect(()=>{
+      if(user){
+          router.push("/")
+      }
+  },[])
   return (
     <>
         <Head>

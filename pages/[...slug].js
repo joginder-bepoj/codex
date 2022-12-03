@@ -35,7 +35,6 @@ const Tutorials = ({ chapterList, chapterData }) => {
     }
   };
 
-
   return (
     <>
       <Head>

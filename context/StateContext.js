@@ -9,7 +9,7 @@ const Context = createContext()
 
 export const StateContext = ({ children }) => {
 
-    let NEXT_APP_API_URL="https://codexview.com/codexviewApi"
+    let NEXT_APP_API_URL="https://codexview.com/API/codexviewApi/"
     let NEXT_APP_API_KEY="codexviewApi@123"
 
     useEffect(() => {
