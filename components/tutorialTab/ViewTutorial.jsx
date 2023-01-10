@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import {Accordion} from "react-bootstrap"
 

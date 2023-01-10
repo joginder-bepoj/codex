@@ -9,7 +9,7 @@ const Context = createContext()
 
 export const StateContext = ({ children }) => {
 
-    let NEXT_APP_API_URL="https://codexview.com/API/codexviewApi/"
+    let NEXT_APP_API_URL="https://codexview.com/API/codexviewApi"
     let NEXT_APP_API_KEY="codexviewApi@123"
 
     useEffect(() => {
@@ -45,6 +45,7 @@ export const StateContext = ({ children }) => {
     const [borderProfileConfirmPassErr, setBorderProfileConfirmPassErr] = useState(false)
     const [borderResetPass, setBorderResetPass] = useState(false)
     const [borderResetConfirmPass, setBorderResetConfirmPass] = useState(false)
+    const [blogsFile, setBlogsFile] = useState()
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
@@ -162,7 +163,7 @@ export const StateContext = ({ children }) => {
     let blogPostForm = new FormData()
     blogPostForm.append("title", blogPostData.title)
     blogPostForm.append("skill", blogPostData.skill)
-    blogPostForm.append("image", blogPostData.file)
+    blogsFile && blogPostForm.append("image", blogsFile)
     quillValue && blogPostForm.append("description", quillValue)
     user && blogPostForm.append("name", user.name)
     user && blogPostForm.append("email", user.email)
@@ -489,11 +490,11 @@ export const StateContext = ({ children }) => {
     }
     const handleBlogPost = async (e) =>{
         e.preventDefault()
-        const {title, skill, file} = blogPostData;
+        const {title, skill} = blogPostData;
         if(title==="" || skill==="" ){
             toast.error("All fields are madatory", toastOptions)
             return false;
-        }else if(file ===""){
+        }else if(blogsFile ===null){
             toast.error("Please add a file", toastOptions)
             return false;
         } else if(quillValue === null){
@@ -568,7 +569,7 @@ export const StateContext = ({ children }) => {
     }
 
     return (
-        <Context.Provider value={{ handleLogin, loginData, setLoginData, user, handleLogout, registerData, setRegisterData, handleRegister, error, loading, blogsId, setBlogsId, setContactUS, handleContactSubmit, contactUS, borderEmailError, setBorderEmailError, borderPasswordError, setBorderPasswordError, borderNameError, setBorderNameError, borderUserNameError, setBorderUserNameError, borderRegisterError, setBorderRegisterEmailError, setBorderRegisterPasswordError, borderRegisterPasswordError, borderConfirmPasswordError, setBorderConfirmPasswordError, setForgetEmailPass, borderForgetPassError, setBorderForgetPassError, handleForgetPassword, forgetEmailPass, borderContactNameErr, setBorderContactNameErr, borderContactEmailErr, setBorderContactEmailErr, borderContactSubjectErr, setBorderContactSubjectErr, borderContactMessageErr, setBorderContactMessageErr, borderCommentNameErr, setBorderCommentNameErr, borderCommentEmailErr, setBorderCommentEmailErr, handleIssueCommentSubmit, commentsData, setCommentsData, quillValue, setQuillValue, setIssueId, handleIssuePost, issuePostData, setIssuePostData, borderContactPhoneErr, setBorderContactPhoneErr, handleBlogsCommentSubmit, profileUpdateSubmit, profileUpdate, setProfileUpdate, borderProfilePassErr, setBorderProfilePassErr, borderProfileConfirmPassErr, setBorderProfileConfirmPassErr, handleBlogPost, blogPostData, setBlogPostData, handleResetPassword, borderResetPass, setBorderResetPass, borderResetConfirmPass, setBorderResetConfirmPass, resetPasswordData, setResetPasswordData, toastOptions, handleProfileNavigate}}>
+        <Context.Provider value={{ handleLogin, loginData, setLoginData, user, handleLogout, registerData, setRegisterData, handleRegister, error, loading, blogsId, setBlogsId, setContactUS, handleContactSubmit, contactUS, borderEmailError, setBorderEmailError, borderPasswordError, setBorderPasswordError, borderNameError, setBorderNameError, borderUserNameError, setBorderUserNameError, borderRegisterError, setBorderRegisterEmailError, setBorderRegisterPasswordError, borderRegisterPasswordError, borderConfirmPasswordError, setBorderConfirmPasswordError, setForgetEmailPass, borderForgetPassError, setBorderForgetPassError, handleForgetPassword, forgetEmailPass, borderContactNameErr, setBorderContactNameErr, borderContactEmailErr, setBorderContactEmailErr, borderContactSubjectErr, setBorderContactSubjectErr, borderContactMessageErr, setBorderContactMessageErr, borderCommentNameErr, setBorderCommentNameErr, borderCommentEmailErr, setBorderCommentEmailErr, handleIssueCommentSubmit, commentsData, setCommentsData, quillValue, setQuillValue, setIssueId, handleIssuePost, issuePostData, setIssuePostData, borderContactPhoneErr, setBorderContactPhoneErr, handleBlogsCommentSubmit, profileUpdateSubmit, profileUpdate, setProfileUpdate, borderProfilePassErr, setBorderProfilePassErr, borderProfileConfirmPassErr, setBorderProfileConfirmPassErr, handleBlogPost, blogPostData, setBlogPostData, handleResetPassword, borderResetPass, setBorderResetPass, borderResetConfirmPass, setBorderResetConfirmPass, resetPasswordData, setResetPasswordData, toastOptions, handleProfileNavigate, setBlogsFile}}>
             {children}
         </Context.Provider>
     )

@@ -4,9 +4,12 @@ import { useStateContext } from '../../context/StateContext'
 import Spinner from '../spinner/Spinner'
 
 const AddBlog = () => {
-    const {handleBlogPost, blogPostData, setBlogPostData, loading} = useStateContext()
+    const {handleBlogPost, blogPostData, setBlogPostData, loading, setBlogsFile} = useStateContext()
     const handleChange =(e) =>{
         setBlogPostData({...blogPostData, [e.target.name]: e.target.value})
+    }
+    const handleFileChange = (e) =>{
+        setBlogsFile(e.target.files[0])
     }
   return (
     <>
@@ -42,8 +45,7 @@ const AddBlog = () => {
                                     type="file"
                                     name="file"
                                     accept="image/png, image/gif, image/jpeg"
-                                    value={blogPostData.file}
-                                    onChange={handleChange}
+                                    onChange={handleFileChange}
                                     className="modalInp w-100 border-bottom"
                                 />
                                 <br />
